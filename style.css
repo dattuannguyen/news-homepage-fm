@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root{
+    --Off-white: hsl(36, 100%, 99%);
+    --Grayish-blue: hsl(233, 8%, 79%);
+    --Dark-grayish-blue: hsl(236, 13%, 42%);
+    --Very-dark-blue: hsl(240, 100%, 5%);
+    --Soft-orange: hsl(35, 77%, 62%);
+    --Soft-red: hsl(5, 85%, 63%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    font-size: 16px;
+    margin: 5rem 15rem;
+}
+
+.container{
+    display: grid;
+    /*grid-template-columns: repeat(3,1fr);*/
+    grid-template-columns: repeat(auto-fit,auto);
+    grid-template-rows: 0.1fr 0.5fr 0.5fr 0.5fr;
+    grid-template-areas:
+        "nav nav nav"
+        "img img news"
+        "head des news"
+        "a1 a2 a3";
+    gap: 2rem;
+}
+
+nav{
+    grid-area: nav;
+    /*display: flex;*/
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li{
+    padding: 0 30px;
+    cursor: pointer;
+    color: var(--Dark-grayish-blue);
+}
+
+nav li:first-child{
+    margin-right: auto;
+    padding: 0;
+}
+nav li:hover{
+  color: var(--Soft-red);
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 350px;
+    background-color: white;
+    padding: 1.25rem;
+    z-index: 999;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li{
+    width: 100%;
+    padding-top: 50px;
+}
+
+
+.image-web{
+    grid-area: img;
+}
+
+.image-web img{
+    object-fit: cover;
+    width: 100%;
+    /*max-height: 100%;*/
+    height: auto;
+    display: block;
+}
+.big-header{
+    grid-area: head;
+    font-size: 50px;
+    font-weight: 800;
+    color: var(--Very-dark-blue);
+    padding-right: 5rem;
+}
+
+.read_more_task{
+    grid-area: des;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.read_more_task p{
+    line-height: 1.5rem;
+    color: var(--Dark-grayish-blue);
+}
+
+.read_more_task button{
+    max-width: 60%;
+    text-align: center;
+    padding: 1rem 3rem ;
+    font-size: 18px;
+    font-weight: 400;
+    background-color: var(--Soft-red);
+    cursor: pointer;
+    color: #fff;
+    border-style: none;
+    letter-spacing: 2px;
+}
+.read_more_task button:hover {
+    background-color: var(--Very-dark-blue);
+    /*font-weight: 800;*/
+}
+
+
+.news-task{
+    grid-area: news;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 3rem 2rem;
+    background-color: var(--Very-dark-blue);
+    width: 100%;
+}
+
+.news-task h2{
+    font-size: 3rem;
+    font-weight: 700;
+    /*margin-bottom: 2rem;*/
+    color: var(--Soft-orange);
+}
+
+.news-task article{
+    border-bottom-style: solid;
+    border-color: var(--Dark-grayish-blue);
+    border-width: 1px;
+    padding: 1rem 0 ;
+}
+
+.news-task article:last-child{
+    border: none;
+}
+
+.news-task article h3{
+    color:var(--Off-white);
+    padding: 1rem 0;
+    cursor: pointer;
+}
+
+.news-task article h3:hover{
+    color: var(--Soft-orange);
+}
+
+.news-task article p{
+    color: var(--Dark-grayish-blue);
+
+}
+
+.card{
+    padding-top: 1rem;
+    display: flex;
+    /*justify-content: space-between;*/
+    gap: 1rem;
+}
+.card > img{
+    height: 150px;
+    width: 150px;
+}
+
+.card-describe h1{
+    color: var(--Grayish-blue);
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.card-describe>h3{
+    padding-bottom: 1rem;
+    cursor: pointer;
+}
+.card-describe>h3:hover{
+    color: var(--Soft-red);
+}
+.card-describe p{
+    padding-bottom: 1rem;
+    color: var(--Dark-grayish-blue);
+    font-weight: 400;
+}
+
+.article-1{
+    grid-area: a1;
+}
+.article-2{
+    grid-area: a2;
+}
+.article-3{
+    grid-area: a3;
+}
+
+.menu-icon{
+    display: none;
+}
+
+
+
+@media only screen and (max-width:1000px)  {
+    body{
+        margin: 1rem ;
+    }
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8,auto);
+        grid-template-areas:
+            "nav"
+            "img"
+            "head"
+            "des"
+            "news"
+            "a1"
+            "a2"
+            "a3";
+        gap: 1rem;
+    }
+
+    .menu-icon{
+        display: block;
+    }
+    .read_more_task button{
+        margin-top: 20px;
+    }
+    .hideOnMobile{
+        display: none;
+    }
+}
